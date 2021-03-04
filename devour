@@ -1,0 +1,10 @@
+#!/bin/sh
+id=$RANDOM
+swaymsg mark add $id
+swaymsg floating true
+
+swaymsg move up 1000000000000
+echo "$1 \"$2\"" | sh
+
+swaymsg \[con_mark="$id"\] focus
+swaymsg floating false
