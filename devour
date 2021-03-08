@@ -1,10 +1,11 @@
 #!/bin/sh
 id=$RANDOM
+workspace=$(swaymsg -t get_workspaces | grep -B 4 "focused\": true" | grep -m 1 -o "[0-9]")
+
 swaymsg mark add $id
-swaymsg floating true
+swaymsg move scratchpad
 
-swaymsg move up 1000000000000
-echo "$1 \"$2\"" | sh
+echo "$1 \"$2\"" \"$3\"" \"$4\"" \"$5\"" | sh
 
-swaymsg \[con_mark="$id"\] focus
-swaymsg floating false
+swaymsg \[con_mark="$id"\] move workspace $workspace
+swaymsg \[con_mark="$id"\] floating toggle
