@@ -1,5 +1,5 @@
 # CrudeDevour
-Due to the lack of xdotool, I made a crude devour script for sway.
+Due to the lack of xdotool, I made a crude devour script for sway. Please note the name, These scrips are crude, they are hacks, not well crafted works of art.
 
 ## Versions
 ### Without title bar
