@@ -1,6 +1,6 @@
 #!/bin/sh
-id=$RANDOM
-swaymsg mark add $id
+id=`awk 'BEGIN{srand();printf("%d", 65536*rand())}'`
+swaymsg mark $id
 
 swaymsg [con_mark="$id"] layout stacking &
 
