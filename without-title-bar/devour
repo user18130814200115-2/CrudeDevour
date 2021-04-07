@@ -1,12 +1,18 @@
 #!/bin/sh
 id=`awk 'BEGIN{srand();printf("%d", 65536*rand())}'`
-swaymsg mark $id
+before=$(swaymsg -t get_tree | grep $1 | wc -w)
 
+swaymsg mark "$id"
 swaymsg [con_mark="$id"] layout stacking &
 
 "$@" &
 
-swaymsg for_window [title=.*] split vertical
+while [ $(swaymsg -t get_tree | grep $1 | wc -w) -le $before ]
+do
+  sleep 0.1
+done
+
+swaymsg [app_id="$1"] split vertical
 
 wait
 
