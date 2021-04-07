@@ -10,5 +10,5 @@ swaymsg for_window [title=.*] split vertical
 
 wait
 
-swaymsg \[con_mark="$id"\] layout default &
+swaymsg \[con_mark="$id"\] layout default
 swaymsg \[con_mark="$id"\] mark remove $id
