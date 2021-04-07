@@ -1,5 +1,5 @@
 #!/bin/sh
-id=$RANDOM
+id=`awk 'BEGIN{srand();printf("%d", 65536*rand())}'`
 workspace=$(swaymsg -t get_workspaces | grep -B 4 "focused\": true" | grep -m 1 -o "[0-9]")
 
 swaymsg mark add $id
