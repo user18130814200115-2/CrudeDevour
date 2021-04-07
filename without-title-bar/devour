@@ -2,7 +2,7 @@
 id=$RANDOM
 swaymsg mark add $id
 
-swaymsg \[con_mark="$id"\] layout stacking &
+swaymsg [con_mark="$id"] layout stacking &
 
 "$@" &
 
@@ -10,5 +10,5 @@ swaymsg for_window [title=.*] split vertical
 
 wait
 
-swaymsg \[con_mark="$id"\] layout default
-swaymsg \[con_mark="$id"\] mark remove $id
+swaymsg [con_mark="$id"] layout default
+swaymsg [con_mark="$id"] mark remove $id
